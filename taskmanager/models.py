@@ -2,7 +2,7 @@ from taskmanager import db
 
 
 class Category(db.Model):
-    # schema for the Ctegory model
+    # schema for the Category model
     id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(25), unique=True, nullable=False)
     tasks = db.relationship("Task", backref="category", cascade="all, delete", lazy=True)
@@ -10,7 +10,6 @@ class Category(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return self.category_name
-
 
 
 class Task(db.Model):
